@@ -1,13 +1,13 @@
-const button = document.getElementById("convert-button")
+const convertButton = document.getElementById("convert-button")
 const selectConvertFrom = document.getElementById("select-convert-from")
 const selectConvertTo = document.getElementById("select-convert-to")
-
+const inverterPositionButton = document.getElementById("inverter-position-button")
 
 const convertValues = () => {
 
+    const inputValue = document.getElementById("input-value")
     const convertedCurrencyValue = document.getElementById("converted-currency-value")
     const conversionCurrencyValue = document.getElementById("conversion-currency-value")
-    const inputValue = document.getElementById("input-value")
 
     const realDolar = 5.2
     const realEuro = 5.5
@@ -276,9 +276,28 @@ const changeSelect = () => {
     }
 
     convertValues()
+    equalValueAlert()
+}
+
+const invertSelectPosition = () => {
+
+    let convertFromValue = selectConvertFrom.value
+    selectConvertFrom.value = selectConvertTo.value  
+    selectConvertTo.value = convertFromValue
+
+    convertValues()
+    changeSelect()
+}
+
+const equalValueAlert = () => {
+
+    if (selectConvertFrom.value === selectConvertTo.value) {
+        alert("Escolha valores diferentes")
+    }
 }
 
 
-button.addEventListener("click", convertValues)
+convertButton.addEventListener("click", convertValues)
 selectConvertTo.addEventListener("change", changeSelect)
 selectConvertFrom.addEventListener("change", changeSelect)
+inverterPositionButton.addEventListener("click", invertSelectPosition)
