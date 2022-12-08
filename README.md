@@ -27,7 +27,8 @@ Projeto proposto na formação do [DevClub](https://rodolfomori.com.br/devclub) 
 - `Funcionalidade 1`: Ao clicar no botão **Converter** executa a conversão da quantia inserida no campo **Valor** baseado nas moedas selecionadas.
 - `Funcionalidade 2`: Botão para inverter posição das moedas selecionadas e executar nova conversão.
 <br>
-
+<h2 align="center"><a href="https://alanteixeira88.github.io/Projeto-Conversor-De-Moedas/">CONFIRA!</a></h2>
 <h2 align="center">
 <img src="https://github.com/AlanTeixeira88/Projeto-Conversor-De-Moedas/blob/master/Assets/gif.gif?raw=true" width="400px" />
 </h2>
+
