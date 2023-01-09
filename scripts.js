@@ -4,17 +4,27 @@ const selectConvertFrom = document.getElementById("select-convert-from")
 const selectConvertTo = document.getElementById("select-convert-to")
 const inverterPositionButton = document.getElementById("inverter-position-button")
 
-const convertValues = () => {
+const convertValues = async () => {
 
     const convertedCurrencyValue = document.getElementById("converted-currency-value")
     const conversionCurrencyValue = document.getElementById("conversion-currency-value")
 
-    const realDolar = 5.2
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,USD-EUR,BTC-USD,BTC-EUR").then(response => response.json())
+    console.log(data)
+
+    const realDolar = data.USDBRL.high
+    const realEuro = data.EURBRL.high
+    const realBitcoin = data.BTCBRL.high
+    const dolarEuro = data.USDEUR.high
+    const dolarBitcoin = data.BTCUSD.high
+    const euroBitcoin = data.BTCEUR.high
+
+    /*const realDolar = 5.2
     const realEuro = 5.5
     const realBitcoin = 88506.9
     const dolarEuro = 0.95
     const dolarBitcoin = 16957.3
-    const euroBitcoin = 16092.5
+    const euroBitcoin = 16092.5*/
 
     if (selectConvertFrom.value === "R$ Real Brasileiro" &&
         selectConvertTo.value === "US$ Dólar Americano") {
@@ -298,7 +308,7 @@ const equalValueAlert = () => {
 }
 
 const selectInputValue = () => {
-     inputValue.select()
+    inputValue.select()
 }
 
 convertButton.addEventListener("click", convertValues)
